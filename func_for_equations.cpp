@@ -1,7 +1,8 @@
-// func_for_equations.cpp -- функции для решения уравнений и вывода результата
+// func_for_equations.cpp -- С„СѓРЅРєС†РёРё РґР»СЏ СЂРµС€РµРЅРёСЏ СѓСЂР°РІРЅРµРЅРёР№ Рё РІС‹РІРѕРґР° СЂРµР·СѓР»СЊС‚Р°С‚Р°
 
 #include <stdio.h>
-#include "TXLib.h"
+#include <math.h>
+#include <stdlib.h>
 #include "func_for_equations.h"
 
 void find_roots_square_equation(struct square_equations * square_equation) {
@@ -36,16 +37,16 @@ void print_roots_square_equation(struct square_equations * square_equation) {
   int count = square_equation->count_roots;
   switch (count) {
     case -1:
-      printf("Уравнение имеет бесконечно много корней.");
+      printf("РЈСЂР°РІРЅРµРЅРёРµ РёРјРµРµС‚ Р±РµСЃРєРѕРЅРµС‡РЅРѕ РјРЅРѕРіРѕ РєРѕСЂРЅРµР№.\n");
       break;
     case 0:
-      printf("Уравнение не имеет решений.");
+      printf("РЈСЂР°РІРЅРµРЅРёРµ РЅРµ РёРјРµРµС‚ СЂРµС€РµРЅРёР№.\n");
       break;
     case 1:
-      printf("Уравнение имеет один корень: %f.", square_equation->x1);
+      printf("РЈСЂР°РІРЅРµРЅРёРµ РёРјРµРµС‚ РѕРґРёРЅ РєРѕСЂРµРЅСЊ: %f.\n", square_equation->x1);
       break;
     default:
-      printf("Уравнение имеет два корня: %f, %f.", square_equation->x1, square_equation->x2);
+      printf("РЈСЂР°РІРЅРµРЅРёРµ РёРјРµРµС‚ РґРІР° РєРѕСЂРЅСЏ: %f, %f.\n", square_equation->x1, square_equation->x2);
       break;
   }
 }
