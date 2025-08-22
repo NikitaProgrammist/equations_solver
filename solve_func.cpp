@@ -1,4 +1,4 @@
-// func_for_equations.cpp -- функции для решения уравнений и вывода результата
+// func_for_equations.cpp -- функции для решения уравнений
 
 #include <stdio.h>
 #include <math.h>

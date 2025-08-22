@@ -1,3 +1,4 @@
+// in_out_func.cpp -- функции для вывода решений
 #include <stdio.h>
 #include <math.h>
 #include "func_for_equations.h"
