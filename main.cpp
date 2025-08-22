@@ -2,20 +2,31 @@
 
 #include <stdio.h>
 #include <math.h>
-#include <stdlib.h>
 #include "func_for_equations.h"
 
 int main() {
-  int input;
-  struct square_equations square_equation = {};
-
-  printf("Введите коэффициенты a, b, c квадратного уравнения:\n");
-  input = scanf("%lf%lf%lf", &square_equation.a, &square_equation.b, &square_equation.c);
-  if (input != 3) {
-    printf("Некорректный ввод.\n");
-    exit(0);
+  struct SquareEquations square_equation = {};
+  enum Errors result = SUCCESS;
+  char test_input = 'q';
+  printf("Для завершения программы нажмите q.\n");
+  while (true) {
+    result = inp(&square_equation.a, &square_equation.b, &square_equation.c);
+    if (result == NUMBER_ROOTS_ERROR) {
+      test_input = getchar();
+      if (test_input == 'q') {
+        break;
+      }
+      printf("Некорректный ввод.\n");
+    }
+    else {
+      errorsParser(result);
+      result = findRootsEquation(&square_equation);
+      errorsParser(result);
+      result = printRootsEquation(&square_equation);
+      errorsParser(result);
+    }
+    while ((test_input = getchar()) != '\n');
   }
-  find_roots_square_equation(&square_equation);
-  print_roots_square_equation(&square_equation);
+  printf("Программа завершена корректно.\n");
   return 0;
 }
