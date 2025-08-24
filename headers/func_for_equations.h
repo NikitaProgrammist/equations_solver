@@ -47,6 +47,7 @@ struct SquareEquations {
   double x1, x2;
 };
 
+void parseConsoleArg(int argc, char ** argv);
 void color_printf(enum Colors color, enum Fonts font, const char *fmt, ...);
 void testFindRootsEquation();
 void mainCycle(struct SquareEquations * square_equation);

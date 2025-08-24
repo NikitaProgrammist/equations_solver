@@ -11,7 +11,7 @@ EXECUTABLE=build/main
 all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
+	$(CC) $^ $(LDFLAGS) -o $@
 
 $(OBJECTS_DIR)/%.o: $(FILES_DIR)/%.cpp
 	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@

@@ -3,17 +3,13 @@
 #include <stdio.h>
 #include "func_for_equations.h"
 
-int main() {
-  testFindRootsEquation();
+int main(int argc, char ** argv) {
+  parseConsoleArg(argc, argv);
   struct SquareEquations square_equation = {};
   mainCycle(&square_equation);
-  color_printf(GREEN, PRIMARY, "Программа завершена корректно.\n");
+  color_printf(GREEN, PRIMARY, "Программа завершена корректно.");
   return 0;
 }
-
-// color_printf(GREEN, BOLD, "hjkdsjAHADSK %d %s %lg", 1, "gfgdfgd", 27.5);
-// variadic args
-// vprintf
 
 void mainCycle(struct SquareEquations * square_equation) {
   int clear_buf = ' ';

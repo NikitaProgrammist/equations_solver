@@ -1,7 +1,27 @@
 // in_out_func.cpp -- функции для вывода решений
 
 #include <stdio.h>
+#include <string.h>
 #include "func_for_equations.h"
+
+void parseConsoleArg(int argc, char ** argv) {
+  for (int i = 1; i < argc; i++) {
+    if (!strcmp(argv[i], "help"))
+      printf("Допустимые консольные команды:\ntest - запуск программы с предварительным тестированием.\n"
+      "base - запуск без предварительного тестирования.\nversion - печатает версию программы.\n");
+    else if  (!strcmp(argv[i], "test")) {
+      printf("Программа была запущена с предварительным тестированием.\n");
+      testFindRootsEquation();
+    }
+    else if (!strcmp(argv[i], "base")){
+      printf("Программа была запущена без предварительного тестирования.\n");
+    }
+    else if (!strcmp(argv[i], "version"))
+      printf("equation solver version 3.0.\n");
+    else
+      printf("Запустите код с командой help для получения информации о всех допустимых командах.\n");
+  }
+}
 
 enum Errors inputCoeff(double *a, double *b, double *c) {
   if (a == NULL || b == NULL || c == NULL) return NULL_POINTER_FAILURE;

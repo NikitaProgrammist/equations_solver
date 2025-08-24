@@ -4,8 +4,6 @@
 #include <math.h>
 #include "func_for_equations.h"
 
-// прочитать про assert, попробовать придумать свой кастомный, попробовать добавить например для цветной печати и ошибок и корней
-// функции - mainCycle
 
 enum Errors findRootsEquation(struct SquareEquations * square_equation) {
   if (square_equation == NULL) return NULL_POINTER_FAILURE;
