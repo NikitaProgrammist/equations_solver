@@ -17,4 +17,4 @@ $(OBJECTS_DIR)/%.o: $(FILES_DIR)/%.cpp
 	$(CC) $(CFLAGS) $< $(LDFLAGS) -o $@
 
 clean:
-	rm -rf $(OBJECTS_DIR)/%.o $(EXECUTABLE)
+	rm -rf $(OBJECTS) $(EXECUTABLE)
