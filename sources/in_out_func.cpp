@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <string.h>
 #include "solve_func.h"
-#include "my_printf.h"
 #include "unit_tests.h"
+#include "my_printf.h"
 #include "in_out_func.h"
 
 void parseConsoleArg(int argc, char ** argv) {
@@ -79,20 +79,4 @@ enum Errors printRootsEquation(struct SquareEquations * square_equation) {
       return UNKNOWN_NUMBER_OF_ROOTS;
   }
   return SUCCESS;
-}
-
-void errorsParser(enum Errors error) {
-  switch (error) {
-    case SUCCESS:
-      break;
-    case UNKNOWN_NUMBER_OF_ROOTS:
-      colorPrintf(RED, PRIMARY, "Некорректное количество корней.");
-      break;
-    case NULL_POINTER_FAILURE:
-      colorPrintf(RED, PRIMARY, "Нулевой указатель.");
-      break;
-    default:
-      colorPrintf(RED, PRIMARY, "Непредвиденная ошибка.");
-      break;
-  }
 }

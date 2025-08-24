@@ -5,6 +5,7 @@
 #define SOLVE_FUNC_H
 
 #define EPS 0.000001
+#define MAX_LINE 150
 
 enum Errors {
   SUCCESS,

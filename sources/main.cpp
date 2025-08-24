@@ -1,9 +1,10 @@
 // main.cpp -- программа для нахождения корней квадратного уравнения
 
 #include <stdio.h>
-#include "solve_func.h"
-#include "in_out_func.h"
-#include "my_printf.h"
+#include <solve_func.h>
+#include <in_out_func.h>
+#include <my_printf.h>
+#include <print_errors.h>
 
 
 void mainCycle(struct SquareEquations * square_equation);

@@ -8,6 +8,5 @@ void parseConsoleArg(int argc, char ** argv);
 enum Errors inputCoeff(double * a, double * b, double * c);
 enum Errors inputParse();
 enum Errors printRootsEquation(struct SquareEquations * square_equation);
-void errorsParser(enum Errors error);
 
 #endif

@@ -3,8 +3,11 @@
 #include <stdio.h>
 #include <math.h>
 #include "solve_func.h"
+#include "print_errors.h"
+#include "my_printf.h"
 
 enum Errors findRootsEquation(struct SquareEquations * square_equation) {
+  myAssert(1 == 4);
   if (square_equation == NULL) return NULL_POINTER_FAILURE;
   if (compareDoubles(square_equation->a)) {
     return findRootsLinearEquation(square_equation);

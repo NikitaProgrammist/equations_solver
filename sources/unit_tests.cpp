@@ -2,8 +2,8 @@
 
 #include <stdio.h>
 #include "solve_func.h"
-#include "my_printf.h"
 #include "unit_tests.h"
+#include "my_printf.h"
 
 void testFindRootsEquation() {
   const int test_count = 9;
