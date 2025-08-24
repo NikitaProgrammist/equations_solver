@@ -2,8 +2,7 @@
 
 #include <stdio.h>
 #include <math.h>
-#include "func_for_equations.h"
-
+#include "solve_func.h"
 
 enum Errors findRootsEquation(struct SquareEquations * square_equation) {
   if (square_equation == NULL) return NULL_POINTER_FAILURE;

@@ -1,19 +1,24 @@
 // main.cpp -- программа для нахождения корней квадратного уравнения
 
 #include <stdio.h>
-#include "func_for_equations.h"
+#include "solve_func.h"
+#include "in_out_func.h"
+#include "my_printf.h"
+
+
+void mainCycle(struct SquareEquations * square_equation);
 
 int main(int argc, char ** argv) {
   parseConsoleArg(argc, argv);
   struct SquareEquations square_equation = {};
   mainCycle(&square_equation);
-  color_printf(GREEN, PRIMARY, "Программа завершена корректно.");
+  colorPrintf(GREEN, PRIMARY, "Программа завершена корректно.");
   return 0;
 }
 
 void mainCycle(struct SquareEquations * square_equation) {
   int clear_buf = ' ';
-  color_printf(GREEN, PRIMARY, "Для завершения программы нажмите q.");
+  colorPrintf(GREEN, PRIMARY, "Для завершения программы нажмите q.");
   enum Errors result = SUCCESS;
   while (true) {
     result = inputCoeff(&(square_equation->a), &(square_equation->b), &(square_equation->c));

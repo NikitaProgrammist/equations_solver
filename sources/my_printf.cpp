@@ -2,9 +2,9 @@
 
 #include <stdio.h>
 #include <stdarg.h>
-#include "func_for_equations.h"
+#include "my_printf.h"
 
-void color_printf(enum Colors color, enum Fonts font, const char *fmt, ...) {
+void colorPrintf(enum Colors color, enum Fonts font, const char *fmt, ...) {
   va_list args;
   va_start(args, fmt);
   printf("\033[%d;%dm", color, font);

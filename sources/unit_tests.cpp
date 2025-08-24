@@ -1,7 +1,9 @@
 // unit_tests.cpp -- тестирование функции нахождения корней
 
 #include <stdio.h>
-#include "func_for_equations.h"
+#include "solve_func.h"
+#include "my_printf.h"
+#include "unit_tests.h"
 
 void testFindRootsEquation() {
   const int test_count = 9;
@@ -35,5 +37,5 @@ void test(struct SquareEquations test_square_equation) {
   if (!(square_equation.count_root == test_square_equation.count_root &&
         compareDoubles(square_equation.x1 - test_square_equation.x1) &&
         compareDoubles(square_equation.x2 - test_square_equation.x2)))
-    color_printf(RED, PRIMARY, "Тест %lf %lf %lf упал с ошибкой.", a, b, c);
+    colorPrintf(RED, PRIMARY, "Тест %lf %lf %lf упал с ошибкой.", a, b, c);
 }
