@@ -1,11 +1,10 @@
 // my_printf.h -- заголовочный файл для my_printf.cpp
 
 #ifndef MY_PRINTF_H
-
 #define MY_PRINTF_H
 
 enum Colors {
-  BLACK=30,
+  BLACK = 30,
   RED,
   GREEN,
   YELLOW,
@@ -16,14 +15,14 @@ enum Colors {
 };
 
 enum Fonts {
-  BOLD=1,
+  BOLD = 1,
   FAINT,
   ITALIC,
   UNDERLINE,
-  CROSSED=9,
+  CROSSED = 9,
   PRIMARY
 };
 
-void colorPrintf(enum Colors color, enum Fonts font, const char *fmt, ...);
+void colorPrintf(Colors color, Fonts font, const char *fmt, ...);
 
-#endif
+#endif // MY_PRINTF_H

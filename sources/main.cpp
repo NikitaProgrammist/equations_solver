@@ -1,34 +1,51 @@
 // main.cpp -- программа для нахождения корней квадратного уравнения
 
 #include <stdio.h>
-#include <solve_func.h>
-#include <in_out_func.h>
-#include <my_printf.h>
-#include <print_errors.h>
 
+#include "solve_func.h"
+#include "in_out_func.h"
+#include "my_printf.h"
+#include "print_errors.h"
 
-void mainCycle(struct SquareEquations * square_equation);
+int mainCycle(SquareEquations * square_equation);
 
 int main(int argc, char ** argv) {
   parseConsoleArg(argc, argv);
-  struct SquareEquations square_equation = {};
+  SquareEquations square_equation = {};
   mainCycle(&square_equation);
   colorPrintf(GREEN, PRIMARY, "Программа завершена корректно.");
   return 0;
 }
 
-void mainCycle(struct SquareEquations * square_equation) {
+int mainCycle(SquareEquations * square_equation) {
   int clear_buf = ' ';
   colorPrintf(GREEN, PRIMARY, "Для завершения программы нажмите q.");
-  enum Errors result = SUCCESS;
+  Errors result = SUCCESS;
+
   while (true) {
-    result = inputCoeff(&(square_equation->a), &(square_equation->b), &(square_equation->c));
-    if (result == EXIT) break;
-    else if (result == CONTINUE) continue;
+    result = inputCoeff(square_equation);
+
+    if (result == EXIT) {
+      break;
+    }
+    else if (result == CONTINUE) {
+      continue;
+    }
+
+    while ((clear_buf = getchar()) != '\n') {
+      if (clear_buf == EOF) {
+        printf("\n");
+        return 1;
+      }
+    }
+
     result = findRootsEquation(square_equation);
     errorsParser(result);
-    result = printRootsEquation(square_equation);
-    errorsParser(result);
-    while ((clear_buf = getchar()) != '\n');
+
+    if (result == SUCCESS) {
+      result = printRootsEquation(square_equation);
+      errorsParser(result);
+    }
   }
+  return 0;
 }

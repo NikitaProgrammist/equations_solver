@@ -2,9 +2,10 @@
 
 #include <stdio.h>
 #include <stdarg.h>
+
 #include "my_printf.h"
 
-void colorPrintf(enum Colors color, enum Fonts font, const char *fmt, ...) {
+void colorPrintf(Colors color, Fonts font, const char *fmt, ...) {
   va_list args;
   va_start(args, fmt);
   printf("\033[%d;%dm", color, font);
@@ -14,9 +15,4 @@ void colorPrintf(enum Colors color, enum Fonts font, const char *fmt, ...) {
 }
 
 // прочитать про submodules, в общем сделать
-
-// и свой ассерт, сделать его дефайном, который будет принимать условие bool и также будет принимать макросы
-// описывающее номер строки, имя файла и функцию
-// assert main.cpp: main() error on 16 line
-// надо будет короче выводить еще саму строку в которой ошибка
-// FILE* fopen
+// readme написать красивое, примеры можешь чекнуть у меня

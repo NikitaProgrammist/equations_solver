@@ -2,13 +2,18 @@
 
 #include <stdio.h>
 #include <math.h>
+
 #include "solve_func.h"
 #include "print_errors.h"
 #include "my_printf.h"
 
-enum Errors findRootsEquation(struct SquareEquations * square_equation) {
-  myAssert(1 == 4);
-  if (square_equation == NULL) return NULL_POINTER_FAILURE;
+Errors findRootsEquation(SquareEquations * square_equation) {
+  myAssert(std::isfinite(square_equation->a));
+  myAssert(std::isfinite(square_equation->b));
+  myAssert(std::isfinite(square_equation->c));
+  if (square_equation == NULL) {
+    return NULL_POINTER_FAILURE;
+  }
   if (compareDoubles(square_equation->a)) {
     return findRootsLinearEquation(square_equation);
   }
@@ -19,7 +24,9 @@ enum Errors findRootsEquation(struct SquareEquations * square_equation) {
 }
 
 enum Errors findRootsLinearEquation(struct SquareEquations * square_equation) {
-  if (square_equation == NULL) return NULL_POINTER_FAILURE;
+  if (square_equation == NULL) {
+    return NULL_POINTER_FAILURE;
+  }
   double b = square_equation->b;
   double c = square_equation->c;
   if (compareDoubles(b)) {
@@ -32,21 +39,26 @@ enum Errors findRootsLinearEquation(struct SquareEquations * square_equation) {
   }
   else {
     square_equation->count_root = ONE_ROOT;
+    myAssert(std::isfinite(-c / b));
     square_equation->x1 = -c / b;
   }
   return SUCCESS;
 }
 
-enum Errors findRootsSquareEquation(struct SquareEquations * square_equation) {
-  if (square_equation == NULL) return NULL_POINTER_FAILURE;
+Errors findRootsSquareEquation(SquareEquations * square_equation) {
+  if (square_equation == NULL) {
+    return NULL_POINTER_FAILURE;
+  }
   double a = square_equation->a;
   double b = square_equation->b;
   double c = square_equation->c;
 
   double d = b * b - 4 * a * c;
+  myAssert(std::isfinite(d));
 
   if (compareDoubles(d)) {
     square_equation->count_root = ONE_ROOT;
+    myAssert(std::isfinite(-b / (2 * a)));
     square_equation->x1 = -b / (2 * a);
   }
   else if (d < 0) {
@@ -54,6 +66,8 @@ enum Errors findRootsSquareEquation(struct SquareEquations * square_equation) {
   }
   else {
     square_equation->count_root = TWO_ROOT;
+    myAssert(std::isfinite((-b + sqrt(d)) / (2 * a)));
+    myAssert(std::isfinite((-b - sqrt(d)) / (2 * a)));
     square_equation->x1 = (-b + sqrt(d)) / (2 * a);
     square_equation->x2 = (-b - sqrt(d)) / (2 * a);
   }
