@@ -4,6 +4,6 @@
 #define UNIT_TESTS_H
 
 void testFindRootsEquation();
-void test(SquareEquations test_square_equation); // TODO: не надо писать struct, не надо писать enum
+void test(SquareEquations test_square_equation);
 
 #endif // UNIT_TESTS_H

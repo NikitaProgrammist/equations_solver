@@ -7,6 +7,7 @@
 #include "unit_tests.h"
 #include "my_printf.h"
 #include "in_out_func.h"
+#include "print_errors.h"
 
 /*!
  * @brief функция обработки консольных аргументов
@@ -14,9 +15,9 @@
  * @param argc количество аргументов
  * @param argv аргументы
  */
-void parseConsoleArg(int argc, char ** argv) { // TODO: вспомнить, что предпочитает здесь видеть дед
-  if (argc > 1) { // TODO: size_t
-    if (!strcmp(argv[1], "--help")) { // TODO: даже если можно без скобок if, то лучше с ними
+void parseConsoleArg(int argc, char ** argv) {
+  if (argc > 1) {
+    if (!strcmp(argv[1], "--help")) {
       printf("Допустимые консольные команды:\n--test - запуск программы с предварительным тестированием.\n"
       "--base - запуск без предварительного тестирования.\n--version - печатает версию программы.\n");
     }
@@ -42,13 +43,13 @@ void parseConsoleArg(int argc, char ** argv) { // TODO: вспомнить, чт
  * @param square_equation структура уравнения
  * @return Errors возвращает ошибки, возникающие в процессе выполнения
  */
-Errors inputCoeff(SquareEquations * square_equation) { // TODO передать структуру
-  if (square_equation == NULL) {
-    return NULL_POINTER_FAILURE;
-  }
+Errors inputCoeff(SquareEquations * square_equation) {
+  myAssert(square_equation != NULL);
+
   colorPrintf(GREEN, PRIMARY, "Введите коэффициенты a, b, c квадратного уравнения:");
+
   int input = scanf("%lf%lf%lf", &(square_equation->a), &(square_equation->b), &(square_equation->c));
-  if (input != 3) { // TODO: ассерты в функциях на std::isfinite
+  if (input != 3) {
     return inputParse();
   }
   return SUCCESS;
@@ -89,9 +90,7 @@ Errors inputParse() {
  * @return Errors возвращает ошибки, возникающие в процессе выполнения
  */
 Errors printRootsEquation(SquareEquations * square_equation) {
-  if (square_equation == NULL) {
-    return NULL_POINTER_FAILURE;
-  }
+  myAssert(square_equation != NULL);
 
   CountRoots count = square_equation->count_root;
 

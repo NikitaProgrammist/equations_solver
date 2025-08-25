@@ -17,9 +17,8 @@ Errors findRootsEquation(SquareEquations * square_equation) {
   myAssert(isfinite(square_equation->a));
   myAssert(isfinite(square_equation->b));
   myAssert(isfinite(square_equation->c));
-  if (square_equation == NULL) {
-    return NULL_POINTER_FAILURE;
-  }
+  myAssert(square_equation != NULL);
+
   if (compareDoubles(square_equation->a)) {
     return findRootsLinearEquation(square_equation);
   }
@@ -36,11 +35,11 @@ Errors findRootsEquation(SquareEquations * square_equation) {
  * @return Errors возвращает ошибки, возникающие в процессе выполнения
  */
 Errors findRootsLinearEquation(SquareEquations * square_equation) {
-  if (square_equation == NULL) {
-    return NULL_POINTER_FAILURE;
-  }
+  myAssert(square_equation != NULL);
+
   double b = square_equation->b;
   double c = square_equation->c;
+
   if (compareDoubles(b)) {
     if (compareDoubles(c)) {
       square_equation->count_root = INF_ROOT;
@@ -64,9 +63,8 @@ Errors findRootsLinearEquation(SquareEquations * square_equation) {
  * @return Errors возвращает ошибки, возникающие в процессе выполнения
  */
 Errors findRootsSquareEquation(SquareEquations * square_equation) {
-  if (square_equation == NULL) {
-    return NULL_POINTER_FAILURE;
-  }
+  myAssert(square_equation != NULL);
+
   double a = square_equation->a;
   double b = square_equation->b;
   double c = square_equation->c;
@@ -76,7 +74,9 @@ Errors findRootsSquareEquation(SquareEquations * square_equation) {
 
   if (compareDoubles(d)) {
     square_equation->count_root = ONE_ROOT;
+
     myAssert(isfinite(-b / (2 * a)));
+
     square_equation->x1 = -b / (2 * a);
   }
   else if (d < 0) {
@@ -84,8 +84,10 @@ Errors findRootsSquareEquation(SquareEquations * square_equation) {
   }
   else {
     square_equation->count_root = TWO_ROOT;
+
     myAssert(isfinite((-b + sqrt(d)) / (2 * a)));
     myAssert(isfinite((-b - sqrt(d)) / (2 * a)));
+
     square_equation->x1 = (-b + sqrt(d)) / (2 * a);
     square_equation->x2 = (-b - sqrt(d)) / (2 * a);
   }

@@ -15,7 +15,7 @@
  * @param line_number номер строки с ошибкой
  */
 void printErrorLines(const char * file, const char * func, size_t line_number) {
-  colorPrintf(RED, BOLD, "file: %s\nfunc: %s\nline: %zu\n", file, func, line_number);
+  colorPrintf(RED, BOLD, "file: %s:%zu\nfunc: %s\n", file, line_number, func);
 
   char line[MAX_LINE] = {};
   FILE * fp = fopen(file, "r");
@@ -23,11 +23,10 @@ void printErrorLines(const char * file, const char * func, size_t line_number) {
   for (size_t i = 0; i <= line_number; i++) {
     fgets(line, MAX_LINE, fp);
     if (i >= line_number - 2)
-      colorPrintf(RED, BOLD, "%s", line);
+      colorPrintf(RED, BOLD, "%zu: %s", i, line);
   }
 
   fclose(fp);
-  // abort(); TODO: как-нибудь по-доброму, без аборта
 }
 
 /*!
@@ -43,9 +42,6 @@ void errorsParser(Errors error) {
       break;
     case UNKNOWN_NUMBER_OF_ROOTS:
       colorPrintf(RED, PRIMARY, "Некорректное количество корней.");
-      break;
-    case NULL_POINTER_FAILURE:
-      colorPrintf(RED, PRIMARY, "Нулевой указатель.");
       break;
     default:
       colorPrintf(RED, PRIMARY, "Непредвиденная ошибка.");

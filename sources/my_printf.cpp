@@ -3,7 +3,9 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+#include "solve_func.h"
 #include "my_printf.h"
+#include "print_errors.h"
 
 /*!
  * @brief функция, форматирующая цвет и шрифт вывода

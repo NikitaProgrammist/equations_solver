@@ -24,6 +24,7 @@ int main(int argc, char ** argv) {
  * @return int возвращает корректность завершения своей работы
  */
 int mainCycle(SquareEquations * square_equation) {
+  myAssert(square_equation != NULL);
   int clear_buf = ' ';
   colorPrintf(GREEN, PRIMARY, "Для завершения программы нажмите q.");
   Errors result = SUCCESS;
