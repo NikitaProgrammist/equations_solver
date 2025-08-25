@@ -6,6 +6,10 @@
 #include "unit_tests.h"
 #include "my_printf.h"
 
+/*!
+ * @brief функция тестирующая функцию решения уравнений
+ *
+ */
 void testFindRootsEquation() {
   SquareEquations test_square_equations[] = { {.a = 0, .b = 0, .c = 0,
                                               .count_root = INF_ROOT, .x1 = 0, .x2 = 0},
@@ -30,6 +34,11 @@ void testFindRootsEquation() {
   for (size_t i = 0; i < test_count; i++) test(test_square_equations[i]);
 }
 
+/*!
+ * @brief вспомогательная функция для тестирования уравнений
+ *
+ * @param test_square_equation структура уравнения
+ */
 void test(SquareEquations test_square_equation) {
   double a = test_square_equation.a;
   double b = test_square_equation.b;

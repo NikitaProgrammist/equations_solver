@@ -7,10 +7,16 @@
 #include "print_errors.h"
 #include "my_printf.h"
 
+/*!
+ * @brief функция поиска корней уравнения
+ *
+ * @param square_equation структура уравнения
+ * @return Errors возвращает ошибки, возникающие в процессе выполнения
+ */
 Errors findRootsEquation(SquareEquations * square_equation) {
-  myAssert(std::isfinite(square_equation->a));
-  myAssert(std::isfinite(square_equation->b));
-  myAssert(std::isfinite(square_equation->c));
+  myAssert(isfinite(square_equation->a));
+  myAssert(isfinite(square_equation->b));
+  myAssert(isfinite(square_equation->c));
   if (square_equation == NULL) {
     return NULL_POINTER_FAILURE;
   }
@@ -23,7 +29,13 @@ Errors findRootsEquation(SquareEquations * square_equation) {
   return SUCCESS;
 }
 
-enum Errors findRootsLinearEquation(struct SquareEquations * square_equation) {
+/*!
+ * @brief функция поиска корня линейного уравнения
+ *
+ * @param square_equation структура квадратного уравнения
+ * @return Errors возвращает ошибки, возникающие в процессе выполнения
+ */
+Errors findRootsLinearEquation(SquareEquations * square_equation) {
   if (square_equation == NULL) {
     return NULL_POINTER_FAILURE;
   }
@@ -39,12 +51,18 @@ enum Errors findRootsLinearEquation(struct SquareEquations * square_equation) {
   }
   else {
     square_equation->count_root = ONE_ROOT;
-    myAssert(std::isfinite(-c / b));
+    myAssert(isfinite(-c / b));
     square_equation->x1 = -c / b;
   }
   return SUCCESS;
 }
 
+/*!
+ * @brief функция поиска корней квадратного уравнения
+ *
+ * @param square_equation структура квадратного уравнения
+ * @return Errors возвращает ошибки, возникающие в процессе выполнения
+ */
 Errors findRootsSquareEquation(SquareEquations * square_equation) {
   if (square_equation == NULL) {
     return NULL_POINTER_FAILURE;
@@ -54,11 +72,11 @@ Errors findRootsSquareEquation(SquareEquations * square_equation) {
   double c = square_equation->c;
 
   double d = b * b - 4 * a * c;
-  myAssert(std::isfinite(d));
+  myAssert(isfinite(d));
 
   if (compareDoubles(d)) {
     square_equation->count_root = ONE_ROOT;
-    myAssert(std::isfinite(-b / (2 * a)));
+    myAssert(isfinite(-b / (2 * a)));
     square_equation->x1 = -b / (2 * a);
   }
   else if (d < 0) {
@@ -66,14 +84,21 @@ Errors findRootsSquareEquation(SquareEquations * square_equation) {
   }
   else {
     square_equation->count_root = TWO_ROOT;
-    myAssert(std::isfinite((-b + sqrt(d)) / (2 * a)));
-    myAssert(std::isfinite((-b - sqrt(d)) / (2 * a)));
+    myAssert(isfinite((-b + sqrt(d)) / (2 * a)));
+    myAssert(isfinite((-b - sqrt(d)) / (2 * a)));
     square_equation->x1 = (-b + sqrt(d)) / (2 * a);
     square_equation->x2 = (-b - sqrt(d)) / (2 * a);
   }
   return SUCCESS;
 }
 
+/*!
+ * @brief Сравнение double с нулем
+ *
+ * @param number число
+ * @return true
+ * @return false
+ */
 bool compareDoubles(double number) {
   if (fabs(number) < EPS)
     return true;

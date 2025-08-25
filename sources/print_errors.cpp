@@ -7,6 +7,13 @@
 #include "my_printf.h"
 #include "print_errors.h"
 
+/*!
+ * @brief вспомогательная функция для myAssert, выводящая строчки в которых условие не выполнилось
+ *
+ * @param file название файл с ошибкой
+ * @param func название функции с ошибкой
+ * @param line_number номер строки с ошибкой
+ */
 void printErrorLines(const char * file, const char * func, size_t line_number) {
   colorPrintf(RED, BOLD, "file: %s\nfunc: %s\nline: %zu\n", file, func, line_number);
 
@@ -23,6 +30,11 @@ void printErrorLines(const char * file, const char * func, size_t line_number) {
   // abort(); TODO: как-нибудь по-доброму, без аборта
 }
 
+/*!
+ * @brief функция, обрабатывающая ошибки
+ *
+ * @param error принимает на вход одну из константных ошибок
+ */
 void errorsParser(Errors error) {
   switch (error) {
     case SUCCESS:

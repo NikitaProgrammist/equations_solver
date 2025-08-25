@@ -8,6 +8,12 @@
 #include "my_printf.h"
 #include "in_out_func.h"
 
+/*!
+ * @brief функция обработки консольных аргументов
+ *
+ * @param argc количество аргументов
+ * @param argv аргументы
+ */
 void parseConsoleArg(int argc, char ** argv) { // TODO: вспомнить, что предпочитает здесь видеть дед
   if (argc > 1) { // TODO: size_t
     if (!strcmp(argv[1], "--help")) { // TODO: даже если можно без скобок if, то лучше с ними
@@ -30,6 +36,12 @@ void parseConsoleArg(int argc, char ** argv) { // TODO: вспомнить, чт
   }
 }
 
+/*!
+ * @brief функция ввода коэффициентов уравнения
+ *
+ * @param square_equation структура уравнения
+ * @return Errors возвращает ошибки, возникающие в процессе выполнения
+ */
 Errors inputCoeff(SquareEquations * square_equation) { // TODO передать структуру
   if (square_equation == NULL) {
     return NULL_POINTER_FAILURE;
@@ -42,6 +54,11 @@ Errors inputCoeff(SquareEquations * square_equation) { // TODO передать 
   return SUCCESS;
 }
 
+/*!
+ * @brief функция обрабатывающая некорректный ввод
+ *
+ * @return Errors возвращает ошибки, возникающие в процессе выполнения
+ */
 Errors inputParse() {
   int test_input = getchar();
   if (test_input == 'q') {
@@ -65,6 +82,12 @@ Errors inputParse() {
   return CONTINUE;
 }
 
+/*!
+ * @brief функция вывода решений уравнения
+ *
+ * @param square_equation структура уравнения
+ * @return Errors возвращает ошибки, возникающие в процессе выполнения
+ */
 Errors printRootsEquation(SquareEquations * square_equation) {
   if (square_equation == NULL) {
     return NULL_POINTER_FAILURE;

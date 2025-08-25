@@ -5,6 +5,14 @@
 
 #include "my_printf.h"
 
+/*!
+ * @brief функция, форматирующая цвет и шрифт вывода
+ *
+ * @param color цвет вывода
+ * @param font шрифт вывода
+ * @param fmt строка
+ * @param ... аргументы
+ */
 void colorPrintf(Colors color, Fonts font, const char *fmt, ...) {
   va_list args;
   va_start(args, fmt);

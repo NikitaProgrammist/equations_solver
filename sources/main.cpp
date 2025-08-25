@@ -17,6 +17,12 @@ int main(int argc, char ** argv) {
   return 0;
 }
 
+/*!
+ * @brief основной цикл программы
+ *
+ * @param square_equation структура уравнения
+ * @return int возвращает корректность завершения своей работы
+ */
 int mainCycle(SquareEquations * square_equation) {
   int clear_buf = ' ';
   colorPrintf(GREEN, PRIMARY, "Для завершения программы нажмите q.");
