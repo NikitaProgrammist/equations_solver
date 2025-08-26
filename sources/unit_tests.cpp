@@ -1,5 +1,6 @@
 // unit_tests.cpp -- тестирование функции нахождения корней
 
+#ifdef TEST
 #include <stdio.h>
 
 #include "solve_func.h"
@@ -34,6 +35,31 @@ void testFindRootsEquation() {
   for (size_t i = 0; i < test_count; i++) test(test_square_equations[i]);
 }
 
+//**
+ * @brief функция для тестирования из файла
+ *
+ * @param filename имя файла
+ */
+void fileTest(const char * filename) {
+  size_t count = 0;
+  CountRoots count_root = NO_ROOT;
+  double a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
+  const int MAX_TESTS = 50;
+  SquareEquations tests[MAX_TESTS] = {};
+  FILE * fp = fopen(filename, "r");
+  while (fscanf(fp, "%lf%lf%lf%d%lf%lf", &a, &b, &c, &count_root, &x1, &x2) == 6 && (count < MAX_TESTS)) {
+    tests[count].a = a;
+    tests[count].b = b;
+    tests[count].c = c;
+    tests[count].count_root = count_root;
+    tests[count].x1 = x1;
+    tests[count].x2 = x2;
+    count++;
+  }
+  fclose(fp);
+  for (size_t i = 0; i < count; i++) test(tests[i]);
+}
+
 /*!
  * @brief вспомогательная функция для тестирования уравнений
  *
@@ -50,3 +76,4 @@ void test(SquareEquations test_square_equation) {
         compareDoubles(square_equation.x2 - test_square_equation.x2)))
     colorPrintf(RED, PRIMARY, "Тест %lf %lf %lf упал с ошибкой.", a, b, c);
 }
+#endif // DTEST

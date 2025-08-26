@@ -23,6 +23,3 @@ void colorPrintf(Colors color, Fonts font, const char *fmt, ...) {
   printf("\033[0m\n");
   va_end(args);
 }
-
-// прочитать про submodules, в общем сделать
-// readme написать красивое, примеры можешь чекнуть у меня

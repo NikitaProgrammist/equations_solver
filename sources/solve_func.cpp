@@ -102,6 +102,7 @@ Errors findRootsSquareEquation(SquareEquations * square_equation) {
  * @return false
  */
 bool compareDoubles(double number) {
+  const double EPS = 1e-6;
   if (fabs(number) < EPS)
     return true;
   return false;

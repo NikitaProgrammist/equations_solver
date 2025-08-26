@@ -17,6 +17,7 @@
 void printErrorLines(const char * file, const char * func, size_t line_number) {
   colorPrintf(RED, BOLD, "file: %s:%zu\nfunc: %s\n", file, line_number, func);
 
+  const int MAX_LINE = 150;
   char line[MAX_LINE] = {};
   FILE * fp = fopen(file, "r");
 

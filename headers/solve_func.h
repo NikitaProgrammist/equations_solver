@@ -3,9 +3,6 @@
 #ifndef SOLVE_FUNC_H
 #define SOLVE_FUNC_H
 
-#define EPS 1e-6 // константа в функции, где используется
-#define MAX_LINE 150 // константа
-
 enum Errors {
   SUCCESS,
   EXIT,
@@ -15,7 +12,7 @@ enum Errors {
 };
 
 enum CountRoots {
-  INF_ROOT=-1,
+  INF_ROOT = -1,
   NO_ROOT,
   ONE_ROOT,
   TWO_ROOT

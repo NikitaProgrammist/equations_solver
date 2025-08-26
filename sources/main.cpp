@@ -9,6 +9,10 @@
 
 Errors mainCycle(SquareEquations * square_equation);
 
+// сделать два режима тестов. Одни тесты из файла, другие (флаг --embedded-test) как обычно
+// потом сделать под условную компиляцию. То есть я хочу, чтобы ты писал вот так: make TEST_FLAG=ON
+// и тогда у тебя к сборке будет добавляться флаг -DTEST
+
 int main(int argc, char * argv[]) {
   parseConsoleArg(argc, argv);
   SquareEquations square_equation = {};
