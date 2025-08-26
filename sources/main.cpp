@@ -7,12 +7,13 @@
 #include "my_printf.h"
 #include "print_errors.h"
 
-int mainCycle(SquareEquations * square_equation);
+Errors mainCycle(SquareEquations * square_equation);
 
-int main(int argc, char ** argv) {
+int main(int argc, char * argv[]) {
   parseConsoleArg(argc, argv);
   SquareEquations square_equation = {};
-  mainCycle(&square_equation);
+  Errors result = mainCycle(&square_equation);
+  errorsParser(result);
   colorPrintf(GREEN, PRIMARY, "Программа завершена корректно.");
   return 0;
 }
@@ -23,7 +24,7 @@ int main(int argc, char ** argv) {
  * @param square_equation структура уравнения
  * @return int возвращает корректность завершения своей работы
  */
-int mainCycle(SquareEquations * square_equation) {
+Errors mainCycle(SquareEquations * square_equation) {
   myAssert(square_equation != NULL);
   int clear_buf = ' ';
   colorPrintf(GREEN, PRIMARY, "Для завершения программы нажмите q.");
@@ -42,7 +43,7 @@ int mainCycle(SquareEquations * square_equation) {
     while ((clear_buf = getchar()) != '\n') {
       if (clear_buf == EOF) {
         printf("\n");
-        return 1;
+        return SUCCESS;
       }
     }
 
@@ -54,5 +55,5 @@ int mainCycle(SquareEquations * square_equation) {
       errorsParser(result);
     }
   }
-  return 0;
+  return SUCCESS;
 }

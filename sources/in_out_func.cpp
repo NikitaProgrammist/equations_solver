@@ -15,7 +15,7 @@
  * @param argc количество аргументов
  * @param argv аргументы
  */
-void parseConsoleArg(int argc, char ** argv) {
+void parseConsoleArg(int argc, char * argv[]) {
   if (argc > 1) {
     if (!strcmp(argv[1], "--help")) {
       printf("Допустимые консольные команды:\n--test - запуск программы с предварительным тестированием.\n"
