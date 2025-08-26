@@ -3,7 +3,7 @@
 #ifdef TEST
 #include <stdio.h>
 
-#include "solve_func.h"
+#include "solve.h"
 #include "unit_tests.h"
 #include "my_printf.h"
 

@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <math.h>
 
-#include "solve_func.h"
+#include "solve.h"
 #include "print_errors.h"
 #include "my_printf.h"
 

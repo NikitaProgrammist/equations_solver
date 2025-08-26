@@ -2,13 +2,13 @@
 
 #include <stdio.h>
 
-#include "solve_func.h"
-#include "in_out_func.h"
+#include "solve.h"
+#include "in_out.h"
 #include "my_printf.h"
 #include "print_errors.h"
 
 Errors mainCycle(SquareEquations * square_equation);
-void skipLine();
+Errors skipLine();
 
 int main(int argc, char * argv[]) {
   parseConsoleArg(argc, argv);
@@ -40,7 +40,10 @@ Errors mainCycle(SquareEquations * square_equation) {
       continue;
     }
 
-    skipLine();
+    result = skipLine();
+    if (result == FIND_EOF) {
+      break;
+    }
 
     result = findRootsEquation(square_equation);
     errorsParser(result);
@@ -53,12 +56,13 @@ Errors mainCycle(SquareEquations * square_equation) {
   return SUCCESS;
 }
 
-void skipLine() {
+Errors skipLine() {
   int skip = ' ';
   while ((skip = getchar()) != '\n') {
     if (skip == EOF) {
       printf("\n");
-      return SUCCESS;
+      return FIND_EOF;
     }
   }
+  return SUCCESS;
 }

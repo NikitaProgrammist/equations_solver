@@ -3,10 +3,10 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "solve_func.h"
+#include "solve.h"
 #include "unit_tests.h"
 #include "my_printf.h"
-#include "in_out_func.h"
+#include "in_out.h"
 #include "print_errors.h"
 
 /*!

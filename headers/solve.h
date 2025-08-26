@@ -7,6 +7,7 @@ enum Errors {
   SUCCESS,
   EXIT,
   CONTINUE,
+  FIND_EOF,
   ASSERT_FAILED,
   UNKNOWN_NUMBER_OF_ROOTS
 };
