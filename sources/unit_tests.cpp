@@ -25,9 +25,9 @@ void testFindRootsEquation() {
                                               {.a = 0, .b = 1, .c = 1,
                                               .count_root = ONE_ROOT, .x1 = -1, .x2 = 0},
                                               {.a = 1, .b = 2, .c = 1,
-                                              .count_root = ONE_ROOT, .x1 = -1, .x2 = 0},
+                                              .count_root = ONE_ROOT, .x1 = -1, .x2 = -1},
                                               {.a = 1, .b = -2, .c = 1,
-                                              .count_root = ONE_ROOT, .x1 = 1, .x2 = 0},
+                                              .count_root = ONE_ROOT, .x1 = 1, .x2 = 1},
                                               {.a = 1, .b = 1, .c = 213,
                                               .count_root = NO_ROOT, .x1 = 0, .x2 = 0} };
 
@@ -35,7 +35,7 @@ void testFindRootsEquation() {
   for (size_t i = 0; i < test_count; i++) test(test_square_equations[i]);
 }
 
-//**
+/*!
  * @brief функция для тестирования из файла
  *
  * @param filename имя файла

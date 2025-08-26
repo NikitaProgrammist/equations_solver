@@ -77,7 +77,7 @@ Errors findRootsSquareEquation(SquareEquations * square_equation) {
 
     myAssert(isfinite(-b / (2 * a)));
 
-    square_equation->x1 = -b / (2 * a);
+    square_equation->x1 = square_equation->x2 = -b / (2 * a);
   }
   else if (d < 0) {
     square_equation->count_root = NO_ROOT;
@@ -85,11 +85,20 @@ Errors findRootsSquareEquation(SquareEquations * square_equation) {
   else {
     square_equation->count_root = TWO_ROOT;
 
-    myAssert(isfinite((-b + sqrt(d)) / (2 * a)));
-    myAssert(isfinite((-b - sqrt(d)) / (2 * a)));
+    double x1 = (-b + sqrt(d)) / (2 * a);
+    double x2 = (-b - sqrt(d)) / (2 * a);
 
-    square_equation->x1 = (-b + sqrt(d)) / (2 * a);
-    square_equation->x2 = (-b - sqrt(d)) / (2 * a);
+    myAssert(isfinite(x1));
+    myAssert(isfinite(x2));
+
+    if (x1 > x2) {
+      square_equation->x1 = x1;
+      square_equation->x2 = x2;
+    }
+    else {
+      square_equation->x1 = x2;
+      square_equation->x2 = x1;
+    }
   }
   return SUCCESS;
 }

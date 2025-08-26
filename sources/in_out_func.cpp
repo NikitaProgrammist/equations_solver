@@ -16,32 +16,27 @@
  * @param argv аргументы
  */
 void parseConsoleArg(int argc, char * argv[]) {
-  #ifdef TEST
   if (argc > 1) {
     if (!strcmp(argv[1], "--help")) {
-      printf("Допустимые консольные команды:\n--embedded-test - запуск программы с предварительным тестированием.\n"
-      "--file-test - запуск программы с предварительным тестированием из файла.\n"
+      printf("Допустимые консольные команды:\n--embedded-test (при TEST_FLAGS=ON) - "
+      "запуск программы с предварительным тестированием.\n"
+      "--file-test (при TEST_FLAGS=ON) - запуск программы с предварительным тестированием из файла.\n"
       "--base - запуск без предварительного тестирования.\n--version - печатает версию программы.\n");
     }
+
+    #ifdef TEST
     else if  (!strcmp(argv[1], "--embedded-test")) {
       printf("Программа была запущена с предварительным тестированием.\n");
       testFindRootsEquation();
     }
     else if (!strcmp(argv[1], "--file-test")) {
       printf("Программа была запущена с предварительным тестированием из файла.\n");
-      fileTest("../test.txt");
+      fileTest("../test1.txt");
     }
     else if (!strcmp(argv[1], "--base")) {
       printf("Программа была запущена без предварительного тестирования.\n");
     }
     #endif // DTEST
-
-    #ifndef DTEST
-    if (!strcmp(argv[1], "--help")) {
-      printf("Допустимые консольные команды:\n--base - запуск без предварительного тестирования.\n"
-             "--version - печатает версию программы.\n");
-    }
-    #endif
 
     else if (!strcmp(argv[1], "--version")) {
       printf("Equation solver version 3.0.\n");
