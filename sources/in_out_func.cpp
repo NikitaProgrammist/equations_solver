@@ -31,7 +31,7 @@ void parseConsoleArg(int argc, char * argv[]) {
     }
     else if (!strcmp(argv[1], "--file-test")) {
       printf("Программа была запущена с предварительным тестированием из файла.\n");
-      fileTest("../test1.txt");
+      fileTest("../tests/test1.txt");
     }
     else if (!strcmp(argv[1], "--base")) {
       printf("Программа была запущена без предварительного тестирования.\n");
