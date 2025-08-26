@@ -9,8 +9,6 @@ SOURCES=$(addprefix $(FILES_DIR)/, $(FILES))
 OBJECTS=$(addprefix $(OBJECTS_DIR)/, $(patsubst %.cpp, %.o, $(FILES)))
 EXECUTABLE=build/main
 
-#$(info    VAR is $(TEST_FLAG))
-
 ifeq ($(TEST_FLAG), ON)
 	CFLAGS += -D TEST
 endif
