@@ -41,16 +41,7 @@
 
 Он выводит не только файл, функцию и номер строки с ошибкой но и строку с предыдущей и следующей после нее красным жирным шрифтом.
 
-<span style="color:red">**Assertion failed: isfinite(square_equation->a)**</span>
-
-<span style="color:red">**file: ../sources/solve_func.cpp:17**</span>
-<span style="color:red">**func: Errors findRootsEquation(SquareEquations\*)**</span>
-
-<span style="color:red">**15: Errors findRootsEquation(SquareEquations * square_equation) {**</span>
-
-<span style="color:red">**16:   myAssert(isfinite(square_equation->a));**</span>
-
-<span style="color:red">**17:   myAssert(isfinite(square_equation->b));**</span>
+![alt text](image.png)
 
 ## Как использовать
 
