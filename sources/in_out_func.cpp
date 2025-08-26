@@ -36,7 +36,7 @@ void parseConsoleArg(int argc, char * argv[]) {
     else if (!strcmp(argv[1], "--base")) {
       printf("Программа была запущена без предварительного тестирования.\n");
     }
-    #endif // DTEST
+    #endif // TEST
 
     else if (!strcmp(argv[1], "--version")) {
       printf("Equation solver version 3.0.\n");

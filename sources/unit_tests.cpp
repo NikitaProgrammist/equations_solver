@@ -76,4 +76,4 @@ void test(SquareEquations test_square_equation) {
         compareDoubles(square_equation.x2 - test_square_equation.x2)))
     colorPrintf(RED, PRIMARY, "Тест %lf %lf %lf упал с ошибкой.", a, b, c);
 }
-#endif // DTEST
+#endif // TEST

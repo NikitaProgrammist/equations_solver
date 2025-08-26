@@ -9,4 +9,4 @@ void fileTest(const char * filename);
 void test(SquareEquations test_square_equation);
 
 #endif // UNIT_TESTS_H
-#endif // DTEST
+#endif // TEST
