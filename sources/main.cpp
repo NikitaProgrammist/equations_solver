@@ -8,10 +8,7 @@
 #include "print_errors.h"
 
 Errors mainCycle(SquareEquations * square_equation);
-
-// сделать два режима тестов. Одни тесты из файла, другие (флаг --embedded-test) как обычно
-// потом сделать под условную компиляцию. То есть я хочу, чтобы ты писал вот так: make TEST_FLAG=ON
-// и тогда у тебя к сборке будет добавляться флаг -DTEST
+void skipLine();
 
 int main(int argc, char * argv[]) {
   parseConsoleArg(argc, argv);
@@ -30,7 +27,6 @@ int main(int argc, char * argv[]) {
  */
 Errors mainCycle(SquareEquations * square_equation) {
   myAssert(square_equation != NULL);
-  int clear_buf = ' ';
   colorPrintf(GREEN, PRIMARY, "Для завершения программы нажмите q.");
   Errors result = SUCCESS;
 
@@ -44,12 +40,7 @@ Errors mainCycle(SquareEquations * square_equation) {
       continue;
     }
 
-    while ((clear_buf = getchar()) != '\n') {
-      if (clear_buf == EOF) {
-        printf("\n");
-        return SUCCESS;
-      }
-    }
+    skipLine();
 
     result = findRootsEquation(square_equation);
     errorsParser(result);
@@ -60,4 +51,14 @@ Errors mainCycle(SquareEquations * square_equation) {
     }
   }
   return SUCCESS;
+}
+
+void skipLine() {
+  int skip = ' ';
+  while ((skip = getchar()) != '\n') {
+    if (skip == EOF) {
+      printf("\n");
+      return SUCCESS;
+    }
+  }
 }

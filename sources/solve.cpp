@@ -8,7 +8,7 @@
 #include "my_printf.h"
 
 /*!
- * @brief функция поиска корней уравнения
+ * @brief поиск корней уравнения
  *
  * @param square_equation структура уравнения
  * @return Errors возвращает ошибки, возникающие в процессе выполнения
@@ -29,7 +29,7 @@ Errors findRootsEquation(SquareEquations * square_equation) {
 }
 
 /*!
- * @brief функция поиска корня линейного уравнения
+ * @brief поиск корня линейного уравнения
  *
  * @param square_equation структура квадратного уравнения
  * @return Errors возвращает ошибки, возникающие в процессе выполнения
@@ -57,7 +57,7 @@ Errors findRootsLinearEquation(SquareEquations * square_equation) {
 }
 
 /*!
- * @brief функция поиска корней квадратного уравнения
+ * @brief поиск корней квадратного уравнения
  *
  * @param square_equation структура квадратного уравнения
  * @return Errors возвращает ошибки, возникающие в процессе выполнения
@@ -112,7 +112,5 @@ Errors findRootsSquareEquation(SquareEquations * square_equation) {
  */
 bool compareDoubles(double number) {
   const double EPS = 1e-6;
-  if (fabs(number) < EPS)
-    return true;
-  return false;
+  return fabs(number) < EPS;
 }

@@ -8,7 +8,7 @@
 #include "my_printf.h"
 
 /*!
- * @brief функция тестирующая функцию решения уравнений
+ * @brief тестирует функцию решения уравнений
  *
  */
 void testFindRootsEquation() {
@@ -36,7 +36,7 @@ void testFindRootsEquation() {
 }
 
 /*!
- * @brief функция для тестирования из файла
+ * @brief тестирует функцию с помощью тестовых данных из файла
  *
  * @param filename имя файла
  */
