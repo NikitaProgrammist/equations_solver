@@ -1,4 +1,4 @@
-// solve_func.h заголовочный файл для solve_func.cpp
+// solve.h заголовочный файл для solve.cpp
 
 #ifndef SOLVE_FUNC_H
 #define SOLVE_FUNC_H

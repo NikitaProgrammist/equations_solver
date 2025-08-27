@@ -1,4 +1,4 @@
-// my_printf.cpp -- изменение цвета и шрифта
+// my_printf.cpp -- изменение цвета и шрифта вывода
 
 #include <stdio.h>
 #include <stdarg.h>

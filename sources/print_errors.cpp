@@ -1,4 +1,4 @@
-// print_errors.cpp -- файл печатающий ошибки
+// print_errors.cpp -- файл с функциями, печатающими ошибки
 
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,4 +1,4 @@
-// in_out_func.cpp -- функции для вывода решений
+// in_out.cpp -- функции для обработки ввода и вывода
 
 #include <stdio.h>
 #include <string.h>

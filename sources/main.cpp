@@ -23,7 +23,7 @@ int main(int argc, char * argv[]) {
  * @brief основной цикл программы
  *
  * @param square_equation структура уравнения
- * @return int возвращает корректность завершения своей работы
+ * @return Errors возвращает ошибки, возникающие в процессе выполнения
  */
 Errors mainCycle(SquareEquations * square_equation) {
   myAssert(square_equation != NULL);
@@ -56,6 +56,11 @@ Errors mainCycle(SquareEquations * square_equation) {
   return SUCCESS;
 }
 
+/*!
+ * @brief пропускает строчку
+ *
+ * @return Errors возвращает ошибки, возникающие в процессе выполнения
+ */
 Errors skipLine() {
   int skip = ' ';
   while ((skip = getchar()) != '\n') {

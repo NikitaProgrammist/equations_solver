@@ -1,4 +1,4 @@
-// in_out_func.h -- заголовочный файл для in_out_func.cpp
+// in_out.h -- заголовочный файл для in_out.cpp
 
 #ifndef IN_OUT_FUNC_H
 #define IN_OUT_FUNC_H
