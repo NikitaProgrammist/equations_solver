@@ -24,7 +24,7 @@ void printErrorLines(const char * file, const char * func, size_t line_number) {
   for (size_t i = 0; i <= line_number; i++) {
     fgets(line, MAX_LINE, fp);
     if (i >= line_number - 2)
-      colorPrintf(RED, BOLD, "%zu: %s", i, line);
+      colorPrintf(RED, BOLD, "%zu: %s", i + 1, line);
   }
 
   fclose(fp);
@@ -40,6 +40,13 @@ void errorsParser(Errors error) {
     case SUCCESS:
       break;
     case ASSERT_FAILED:
+      break;
+    case EXIT:
+      break;
+    case CONTINUE:
+      break;
+    case FIND_EOF:
+      colorPrintf(RED, PRIMARY, "Конец ввода.");
       break;
     case UNKNOWN_NUMBER_OF_ROOTS:
       colorPrintf(RED, PRIMARY, "Некорректное количество корней.");
